@@ -1,0 +1,38 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-success navbar-dark">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="{% url 'shop:index' %}">Duka Mtandaoni</a>
+        <ul class="navbar-nav d-flex flex-row me-1">
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white position-relative m-3" style="height: 2rem;"
+                   href="{% url 'shop:shopping_cart' %}">
+                    <i class="bi bi-cart2" style="font-size: large;"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                           <span id="cart-total">{{ basket|length }}</span>
+                    </span>
+                </a>
+
+            </li>
+        </ul>
+
+        {% comment %}
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Icons -->
+            <ul class="navbar-nav d-flex flex-row me-1">
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link text-white position-relative m-3" style="height: 2rem;"
+                       href="{% url 'shop:shopping_cart' %}">
+                        <i class="bi bi-cart2" style="font-size: large;"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                           <span id="cart-total">{{ basket|length }}</span>
+                    </span>
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+        {% endcomment %}
+    </div>
+</nav>

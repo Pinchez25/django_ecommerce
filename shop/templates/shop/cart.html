@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+
+    <style>
+        .remove-product:hover {
+            cursor: pointer;
+        }
+    </style>
+{% endblock %}
+
+
+<section class="h-100" style="background-color: #eee;">
+    {% block content %}
+        <div class="container h-100 py-5">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-10">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="fw-normal mb-0 text-black">Your Items</h3>
+                        <div>
+                            <p class="mb-0">
+                                <span class="text-muted">
+                                Sort by:
+                                </span>
+                                <a href="#" class="text-body text-decoration-none">
+                                    price
+                                    <i class="bi bi-arrow-down mt-1"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card rounded-3 mb-4">
+                        <div class="card-body p-4">
+                            <div class="row d-flex justify-content-between align-items-center">
+                                <div class="col-md-2 col-lg-2 col-xl-2 text-success h5">
+                                    Image
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-xl-3 text-success h5">
+                                    Description
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-xl-2 d-flex text-success h5">
+                                    Quantity
+                                </div>
+                                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg- text-success h5">
+                                    Sub-Total (Ksh.)
+                                </div>
+                                <div class="col-md-1 col-lg-1 col-xl-1 overflow-hidden h5 text-danger">
+                                    X
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% for  item in basket %}
+                        {% with item.product as product %}
+                            <div class="card rounded-3 mb-4 productWrapper" data-cart_item_wrapper="{{ product.id }}">
+                                <div class="card-body p-4">
+                                    <div class="row d-flex justify-content-between align-items-center">
+                                        <div class="col-md-2 col-lg-2 col-xl-2">
+                                            <a href="{{ product.get_absolute_url }}">
+                                                <img src="{{ product.get_image_url }}"
+                                                     class="img-fluid rounded-3" style="width: 150px;"
+                                                     alt="{{ product.title }}">
+                                            </a>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3">
+                                            <a href="{{ product.get_absolute_url }}"
+                                               class="text-decoration-none text-dark">
+                                                <p class="lead fw-normal mb-2">
+                                                    {{ product.title }}
+                                                </p>
+                                            </a>
+                                            <p>
+                                                <span class="text-muted">Price: </span>Ksh. {{ product.price }}
+
+                                            </p>
+                                            <p>
+                                                <a href="{{ product.category.get_absolute_url }}"
+                                                   class="text-decoration-none text-primary" style="color: #9e9e9e;">
+                                                    Category: {{ product.category.name }}
+                                                </a>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex change-quantity"
+                                             data-product_id="{{ product.id }}">
+                                            <button class="btn btn-link px-2 h3 text-dark text-decoration-none"
+                                                    id="btnReduce"
+                                            >&minus;
+                                            </button>
+
+                                            <label for="productQuantity"></label>
+                                            <input id="productQuantity" min="0" name="quantity"
+                                                   data-product_id="{{ product.id }}"
+                                                   value="{{ item.quantity }}"
+                                                   type="number"
+                                                   class="form-control form-control-sm quantity"
+                                                   style="background-color: rgb(255,255,255);" readonly/>
+                                            <button class="btn btn-link px-2 h3 text-dark text-decoration-none"
+                                                    id="btnAdd"
+                                            >&plus;
+                                            </button>
+                                        </div>
+                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                            <h5 class="mb-0 sub-total" data-product="{{ product.id }}">
+                                                {{ item.total_price|floatformat:"2" }}
+                                            </h5>
+                                        </div>
+                                        <div class="col-md-1 col-lg-1 col-xl-1">
+                                            <a class="text-danger">
+                                                <i class="bi bi-trash-fill remove-product"
+                                                   data-product="{{ product.id }}"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endwith %}
+                    {% endfor %}
+
+                    {% comment %}
+                    <div class="card mb-4">
+                        <div class="card-body p-4 d-flex flex-row">
+                            <div class="form-outline flex-fill">
+                                <input type="text" id="form1" class="form-control form-control-lg"/>
+                                <label class="form-label" for="form1">Discount code</label>
+                            </div>
+                            <button type="button" class="btn btn-outline-warning btn-lg ms-3">Apply</button>
+                        </div>
+                    </div>
+                   {% endcomment %}
+                    <div class="card mb-4">
+                        <div class="card-body p-4 d-flex flex-row text-center">
+                            <p class="text-danger h4" id="cartTotal">Cart Total: Ksh. {{ basket.get_total_price }}</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row justify-content-evenly">
+                                <div class="col-md-4">
+                                    <h5 class="mb-3">
+                                        <a href="{% url 'shop:index' %}" class="text-body text-decoration-none">
+                                            <i class="bi bi-arrow-left me-2"></i>
+                                            Continue shopping
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div class="col-md-4">
+
+                                </div>
+                                <div class="col-md-4 d-flex align-content-end">
+                                    <button type="button" class="btn btn-warning btn-block btn-lg text-end">
+                                        Checkout
+                                    </button>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</section>
+
+{% block scripts %}
+    <script>
+
+        const cart_item_wrapper = document.querySelectorAll('.productWrapper')
+        const quantity_change = document.querySelectorAll('.change-quantity')
+        const cartTotalItems = document.getElementById('cart-total')
+        const cartTotal = document.getElementById('cartTotal')
+        const item_sub_total = document.querySelectorAll('.sub-total')
+        const remove_product_from_cart = document.querySelectorAll('.remove-product')
+
+        remove_product_from_cart.forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.preventDefault()
+
+                $.ajax({
+                    url: "{% url 'shop:remove-from-cart' %}",
+                    method: "POST",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        product: e.target.dataset.product,
+                    },
+                    success: data => {
+                        console.log(`Success: ${data['message']}`)
+                        cart_item_wrapper.forEach(wrapper => {
+                            //TODO: Consider using quantity.parentElement later
+                            if (wrapper.dataset.cart_item_wrapper === e.target.dataset.product) {
+                                wrapper.remove()
+
+                            }
+                            cartTotalItems.innerHTML = data['total_items']
+                            cartTotal.innerHTML = `Ksh. ${data['cart_total']}`
+                        })
+                    },
+                    error: err => {
+                        console.log("OOPs! An error occurred: " + err)
+                    }
+                })
+
+            })
+        })
+
+        quantity_change.forEach(quantity => {
+            let product_quantity = Number(quantity.children['productQuantity'].value)
+            const addBtn = quantity.children['btnAdd']
+            const removeBtn = quantity.children['btnReduce']
+            const current_product = quantity.dataset.product_id
+
+            addBtn.addEventListener('click', e => {
+                e.preventDefault()
+                product_quantity += 1
+                $.ajax({
+                    url: {% url 'shop:add_to_cart' %},
+                    method: "POST",
+                    data: {
+                        action: "add",
+                        quantity: 1,
+                        product_id: current_product,
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: data => {
+                        console.log(data)
+                        cartTotalItems.innerHTML = data['total_items']
+                        item_sub_total.forEach(total => {
+                            if (total.dataset.product === quantity.dataset.product_id) {
+                                total.innerHTML = data['sub_total']
+                            }
+                        })
+                        cartTotal.innerHTML = `Ksh. ${data['cart_total']}`
+                    },
+                    error: err => {
+                        console.log(err)
+                    }
+                })
+                quantity.children['productQuantity'].value = product_quantity
+            })
+
+            removeBtn.addEventListener('click', e => {
+                e.preventDefault()
+                product_quantity -= 1
+                $.ajax({
+                    url: {% url 'shop:add_to_cart' %},
+                    method: "POST",
+                    data: {
+                        action: "reduce",
+                        quantity: 1,
+                        product_id: current_product,
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: data => {
+                        console.log(data)
+                        cartTotalItems.innerHTML = data['total_items']
+                        item_sub_total.forEach(total => {
+                            if (total.dataset.product === quantity.dataset.product_id) {
+                                total.innerHTML = data['sub_total']
+                            }
+                        })
+                        cartTotal.innerHTML = `Ksh. ${data['cart_total']}`
+                    },
+                    error: err => {
+                        console.log(err)
+                    }
+                })
+                quantity.children['productQuantity'].value = product_quantity
+
+                if (product_quantity === 0) {
+                    cart_item_wrapper.forEach(wrapper => {
+                        //TODO: Consider using quantity.parentElement later
+                        if (wrapper.dataset.cart_item_wrapper === quantity.dataset.product_id) {
+                            wrapper.remove()
+                        }
+                    })
+                }
+
+            })
+
+        })
+    </script>
+{% endblock %}
+
+
