@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
+
+{% block title %}
+    {% trans 'Your Cart' %}
+{% endblock %}
 
 {% block styles %}
     <link rel="stylesheet" href="{% static 'css/cart.css' %}">
@@ -19,14 +24,14 @@
                 <div class="col-10">
 
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h3 class="fw-normal mb-0 text-black">Your Items</h3>
+                        <h3 class="fw-normal mb-0 text-black">{% trans 'Your Items' %}</h3>
                         <div>
                             <p class="mb-0">
                                 <span class="text-muted">
-                                Sort by:
+                                {% trans 'Sort by:' %}
                                 </span>
                                 <a href="#" class="text-body text-decoration-none">
-                                    price
+                                    {% trans 'price' %}
                                     <i class="bi bi-arrow-down mt-1"></i>
                                 </a>
                             </p>
@@ -36,16 +41,16 @@
                         <div class="card-body p-4">
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="col-md-2 col-lg-2 col-xl-2 text-success h5">
-                                    Image
+                                    {% trans 'Image' %}
                                 </div>
                                 <div class="col-md-3 col-lg-3 col-xl-3 text-success h5">
-                                    Description
+                                    {% trans 'Description' %}
                                 </div>
                                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex text-success h5">
-                                    Quantity
+                                    {% trans 'Quantity' %}
                                 </div>
                                 <div class="col-md-3 col-lg-2 col-xl-2 offset-lg- text-success h5">
-                                    Sub-Total (Ksh.)
+                                    {% trans 'Sub-Total' %} (Ksh.)
                                 </div>
                                 <div class="col-md-1 col-lg-1 col-xl-1 overflow-hidden h5 text-danger">
                                     X
@@ -74,13 +79,13 @@
                                                 </p>
                                             </a>
                                             <p>
-                                                <span class="text-muted">Price: </span>Ksh. {{ product.price }}
+                                                <span class="text-muted">{% trans 'Price:' %} </span>Ksh. {{ product.price }}
 
                                             </p>
                                             <p>
                                                 <a href="{{ product.category.get_absolute_url }}"
                                                    class="text-decoration-none text-primary" style="color: #9e9e9e;">
-                                                    Category: {{ product.category.name }}
+                                                    {% trans 'Category:' %} {{ product.category.name }}
                                                 </a>
                                             </p>
                                         </div>
@@ -133,7 +138,7 @@
                    {% endcomment %}
                     <div class="card mb-4">
                         <div class="card-body p-4 d-flex flex-row text-center">
-                            <p class="text-danger h4" id="cartTotal">Cart Total: Ksh. {{ basket.get_total_price }}</p>
+                            <p class="text-danger h4" id="cartTotal">{% trans 'Cart Total:' %} Ksh. {{ basket.get_total_price }}</p>
                         </div>
                     </div>
                     <div class="card">
@@ -143,7 +148,7 @@
                                     <h5 class="mb-3">
                                         <a href="{% url 'shop:index' %}" class="text-body text-decoration-none">
                                             <i class="bi bi-arrow-left me-2"></i>
-                                            Continue shopping
+                                            {% trans 'Continue shopping' %}
                                         </a>
                                     </h5>
                                 </div>
@@ -152,7 +157,7 @@
                                 </div>
                                 <div class="col-md-4 d-flex align-content-end">
                                     <button type="button" class="btn btn-warning btn-block btn-lg text-end">
-                                        Checkout
+                                        {% trans 'Checkout' %}
                                     </button>
 
                                 </div>

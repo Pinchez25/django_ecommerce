@@ -1,0 +1,35 @@
+<footer class="bg-light text-white">
+    <div class="container p-4 pb-0 text-center">
+        <section class="mb-4">
+            <a class="btn text-white btn-floating m-1" style="background-color:#3b5998;" href="#">
+                <i class="bi bi-facebook"></i>
+            </a>
+            <a class="btn text-white btn-floating m-1" style="background-color:#55acee;" href="#">
+                <i class="bi bi-twitter"></i>
+            </a>
+            <a class="btn text-white btn-floating m-1" style="background-color:#333;"
+               href="https://github.com/Pinchez25/">
+                <i class="bi bi-github"></i>
+            </a>
+            <a class="btn text-white btn-floating m-1" style="background-color:#dd4b39;" href="#">
+                <i class="bi bi-google"></i>
+            </a>
+            <a class="btn text-white btn-floating m-1" style="background-color:#ac2bac;" href="#">
+                <i class="bi bi-instagram"></i>
+            </a>
+            <a class="btn text-white btn-floating m-1" style="background-color:#0082ca;" href="#">
+                <i class="bi bi-linkedin"></i>
+            </a>
+        </section>
+
+    </div>
+    <div class="text-center p-3 text-dark bi" style="background-color: rgba(0,0,0,0.2);">
+        &copy; Peter Thua
+        <p id="year"></p>
+    </div>
+</footer>
+<script>
+    const year = document.getElementById('year')
+
+    year.innerHTML = new Date().getFullYear().toString()
+</script>

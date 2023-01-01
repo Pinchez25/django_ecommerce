@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% load crispy_forms_tags %}
 
@@ -16,20 +17,20 @@
                             <img src="{{ product.get_image_url }}" alt="{{ product.title }}" style="width: 300px;">
                         </div>
                         <div class="col-md-8">
-                            <h3>Title</h3>
+                            <h3>{% trans 'Title' %}</h3>
                             <p>
                                 {{ product.title }}
                             </p>
-                            <h3>Description</h3>
+                            <h3>{% trans 'Description' %}</h3>
                             <p>
                                 {{ product.description|linebreaks }}
                             </p>
-                            <h3>Category</h3>
+                            <h3>{% trans 'Category' %}</h3>
                             <p>
                                 <a href="{{ product.category.get_absolute_url }}"
                                    class="text-decoration-none">{{ product.category.name }}</a>
                             </p>
-                            <h3>Price</h3>
+                            <h3>{% trans 'Price' %}</h3>
                             <p>
                                 Ksh. {{ product.price|floatformat:"2" }}
                             </p>

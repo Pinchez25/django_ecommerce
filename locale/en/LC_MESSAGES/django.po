@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-01 17:25+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\Ecommerce_Site_In_Django\settings.py:123
+msgid "English"
+msgstr ""
+
+#: .\Ecommerce_Site_In_Django\settings.py:124
+msgid "Swahili"
+msgstr ""
+
+#: .\shop\forms.py:8
+msgid "quantity"
+msgstr ""
+
+#: .\shop\forms.py:16 .\shop\templates\shop\index.html:65
+msgid "Add to Cart"
+msgstr ""
+
+#: .\shop\forms.py:24
+msgid "Please enter the quantity"
+msgstr ""
+
+#: .\shop\forms.py:26
+msgid "Quantity has to be greater than 0"
+msgstr ""
+
+#: .\shop\models.py:10
+msgid "name"
+msgstr ""
+
+#: .\shop\models.py:20 .\shop\templates\shop\product_detail.html:28
+msgid "Category"
+msgstr ""
+
+#: .\shop\models.py:21 .\shop\templates\shop\index.html:25
+msgid "Categories"
+msgstr ""
+
+#: .\shop\models.py:26
+msgid "category"
+msgstr ""
+
+#: .\shop\models.py:27
+msgid "Product Name"
+msgstr ""
+
+#: .\shop\models.py:29 .\shop\templates\shop\cart.html:44
+msgid "Image"
+msgstr ""
+
+#: .\shop\models.py:30
+msgid "description"
+msgstr ""
+
+#: .\shop\models.py:31 .\shop\templates\shop\cart.html:34
+msgid "price"
+msgstr ""
+
+#: .\shop\models.py:32
+msgid "available"
+msgstr ""
+
+#: .\shop\models.py:51
+msgid "Product"
+msgstr ""
+
+#: .\shop\models.py:52
+msgid "Products"
+msgstr ""
+
+#: .\shop\templates\shop\cart.html:6
+msgid "Your Cart"
+msgstr ""
+
+#: .\shop\templates\shop\cart.html:27
+msgid "Your Items"
+msgstr ""
+
+#: .\shop\templates\shop\cart.html:31
+msgid "Sort by:"
+msgstr ""
+
+#: .\shop\templates\shop\cart.html:47
+#: .\shop\templates\shop\product_detail.html:24
+msgid "Description"
+msgstr ""
+
+#: .\shop\templates\shop\cart.html:50
+msgid "Quantity"
+msgstr ""
+
+#: .\shop\templates\shop\cart.html:53
+msgid "Sub-Total"
+msgstr ""
+
+#: .\shop\templates\shop\cart.html:82 .\shop\templates\shop\index.html:63
+msgid "Price:"
+msgstr ""
+
+#: .\shop\templates\shop\cart.html:88
+msgid "Category:"
+msgstr ""
+
+#: .\shop\templates\shop\cart.html:142
+msgid "Cart Total:"
+msgstr ""
+
+#: .\shop\templates\shop\cart.html:152
+msgid "Continue shopping"
+msgstr ""
+
+#: .\shop\templates\shop\cart.html:161
+msgid "Checkout"
+msgstr ""
+
+#: .\shop\templates\shop\index.html:7
+msgid "Thanks for Visiting Our Shop"
+msgstr ""
+
+#: .\shop\templates\shop\index.html:14
+msgid "Search for a product"
+msgstr ""
+
+#: .\shop\templates\shop\index.html:16
+msgid "Type in to search..."
+msgstr ""
+
+#: .\shop\templates\shop\index.html:18
+msgid "Search ..."
+msgstr ""
+
+#: .\shop\templates\shop\index.html:31
+msgid "All"
+msgstr ""
+
+#: .\shop\templates\shop\index.html:41
+msgid "No Categories Founds"
+msgstr ""
+
+#: .\shop\templates\shop\index.html:71
+msgid "OOPS! No Products Founds"
+msgstr ""
+
+#: .\shop\templates\shop\product_detail.html:20
+msgid "Title"
+msgstr ""
+
+#: .\shop\templates\shop\product_detail.html:33
+msgid "Price"
+msgstr ""
+
+#: .\templates\base.html:13
+msgid "My Shop"
+msgstr ""
+
+#: .\templates\navbar.html:7
+msgid "Online Shop"
+msgstr ""
+
+#: .\templates\navbar.html:19
+msgid "Choose Language"
+msgstr ""
