@@ -10,7 +10,7 @@
     <div class="row mt-3 mb-3">
         <div class="col-md-3">
             <div class="mb-3">
-                <form method="get" action="{% url 'shop:index' %}">
+                <form method="get" action="{% url 'shop:index' %}" id="product-search">
                     <label for="searchproduct">{% trans "Search for a product" %}</label>
                     <input type="text" name="search_product" class="form-control w-100"
                            id="searchproduct" placeholder="{% trans 'Type in to search...' %}" value="{{ query }}"

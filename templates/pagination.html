@@ -3,27 +3,53 @@
         <ul class="pagination pagination-lg justify-content-center">
             {% if queryset.has_previous %}
                 <li class="page-item">
-                    <a href="?page={{ queryset.previous_page_number }}" class="page-link">&laquo;</a>
+                    <a href="?page={{ queryset.previous_page_number }}" class="page-link"
+                       data-page="{{ queryset.previous_page_number }}">&laquo;</a>
                 </li>
             {% endif %}
             {% for page in paginator.page_range %}
                 {% if page == queryset.number %}
                     <li class="page-item">
-                        <a href="?page={{ page }}" class="page-link current-page">{{ page }}</a>
+                        <a href="?page={{ page }}" class="page-link current-page" data-page="{{ page }}">{{ page }}</a>
                     </li>
                 {% else %}
                     <li class="page-item">
-                        <a href="?page={{ page }}" class="page-link">{{ page }}</a>
+                        <a href="?page={{ page }}" class="page-link" data-page="{{ page }}">{{ page }}</a>
                     </li>
                 {% endif %}
 
             {% endfor %}
             {% if queryset.has_next %}
                 <li class="page-item">
-                    <a href="?page={{ queryset.next_page_number }}" class="page-link">&raquo;</a>
+                    <a href="?page={{ queryset.next_page_number }}" class="page-link"
+                       data-page="{{ queryset.next_page_number }}">&raquo;</a>
                 </li>
             {% endif %}
 
         </ul>
     </nav>
 {% endif %}
+
+<script>
+    /*
+    *  Ensure that when you search, the results are not lost when you click
+    * on the paginator buttons i.e. the pagination is consistent with the search results.
+    * */
+    const form = document.getElementById('product-search');
+    const pageLinks = document.querySelectorAll('.page-link');
+
+    if (form) {
+        pageLinks.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const page = e.target.dataset.page
+                console.log(page)
+
+                form.innerHTML += `<input value="${page}" name="page" hidden/>`
+                form.submit()
+
+            })
+        })
+    }
+
+</script>
