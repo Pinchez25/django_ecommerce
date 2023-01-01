@@ -138,7 +138,10 @@
                    {% endcomment %}
                     <div class="card mb-4">
                         <div class="card-body p-4 d-flex flex-row text-center">
-                            <p class="text-danger h4" id="cartTotal">{% trans 'Cart Total:' %} Ksh. {{ basket.get_total_price }}</p>
+                            <p class="text-danger h4">{% trans 'Cart Total:' %}
+                            <span id="cartTotal">
+                                 Ksh. {{ basket.get_total_price }}</span>
+                            </p>
                         </div>
                     </div>
                     <div class="card">
@@ -223,7 +226,7 @@
                 e.preventDefault()
                 product_quantity += 1
                 $.ajax({
-                    url: {% url 'shop:add_to_cart' %},
+                    url: "{% url 'shop:add_to_cart' %}",
                     method: "POST",
                     data: {
                         action: "add",
@@ -252,7 +255,7 @@
                 e.preventDefault()
                 product_quantity -= 1
                 $.ajax({
-                    url: {% url 'shop:add_to_cart' %},
+                    url: "{% url 'shop:add_to_cart' %}",
                     method: "POST",
                     data: {
                         action: "reduce",

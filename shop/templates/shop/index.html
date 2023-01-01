@@ -82,6 +82,7 @@
     <script>
         $(document).ready(function () {
             const btnAddToCart = Array.from(document.getElementsByClassName('btnAddToCart'))
+
             {% comment %}
             const btn_search = document.querySelector('#btnSearch')
             const search_query = document.querySelector('#searchproduct')
@@ -119,10 +120,11 @@
             btnAddToCart.forEach(btn => {
                 btn.addEventListener('click', e => {
                     e.preventDefault()
+                    console.log('Clicked')
                     let product_id = e.target.dataset.id
 
                     $.ajax({
-                        url: {% url 'shop:add_to_cart' %},
+                        url: "{% url 'shop:add_to_cart' %}",
                         method: "POST",
                         data: {
                             action: "add",
