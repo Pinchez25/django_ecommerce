@@ -15,7 +15,8 @@
                     <input type="text" name="search_product" class="form-control w-100"
                            id="searchproduct" placeholder="{% trans 'Type in to search...' %}" value="{{ query }}"
                     >
-                    <input type="submit" class="btn btn-success mt-3 w-100" id="btnSearch" value="{% trans 'Search ...' %}" required>
+                    <input type="submit" class="btn btn-success mt-3 w-100" id="btnSearch"
+                           value="{% trans 'Search ...' %}" required>
                 </form>
 
             </div>
@@ -28,7 +29,8 @@
                     <div class="card-body p-0 m-0 text-center border-0">
                         <ul class="list-group bottom-0">
                             <li class="list-group-item">
-                                <a href="{% url 'shop:index' %}" class="text-decoration-none text-dark">{% trans "All" %}</a>
+                                <a href="{% url 'shop:index' %}"
+                                   class="text-decoration-none text-dark">{% trans "All" %}</a>
                             </li>
                             {% for category in categories %}
                                 <li class="list-group-item">
@@ -50,7 +52,7 @@
 
             <div class="row justify-content-evenly">
                 {% for product in products %}
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="card mb-3">
                             <a href="{{ product.get_absolute_url }}">
                                 <img src="{{ product.get_image_url }}" class="card-img-top" alt="{{ product.title }}">
@@ -62,7 +64,8 @@
                                     <br>
                                     {% trans "Price:" %} Ksh.{{ product.price|floatformat:"2" }}
                                 </p>
-                                <button class="btn btn-primary btnAddToCart" data-id="{{ product.id }}">{% trans 'Add to Cart' %}
+                                <button class="btn btn-primary btnAddToCart"
+                                        data-id="{{ product.id }}">{% trans 'Add to Cart' %}
                                 </button>
                             </div>
                         </div>
@@ -76,6 +79,9 @@
 
 
     </div>
+{% endblock %}
+{% block pagination %}
+    {% include 'pagination.html' with queryset=products %}
 {% endblock %}
 
 {% block scripts %}

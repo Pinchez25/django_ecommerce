@@ -1,3 +1,7 @@
 body{
     /*padding-top: 80px;*/
 }
+.current-page{
+    color: red;
+    background-color: darkslategray;
+}

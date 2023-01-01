@@ -3,7 +3,7 @@ from decimal import Decimal
 from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
-
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .cart import Basket
 from .forms import AddToCartForm
 from .models import Category, Product
@@ -26,11 +26,24 @@ def index(request, category_slug=None):
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
 
+    page = request.GET.get('page')
+    paginator = Paginator(products, 6)
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        page = 1
+        products = paginator.page(page)
+
+    except EmptyPage:
+        page = paginator.num_pages
+        products = paginator.page(page)
+
     return render(request, 'shop/index.html', {
         'category': category,
         'categories': categories,
         'products': products,
-        'query':search_query
+        'query': search_query,
+        'paginator':paginator,
     })
 
 
