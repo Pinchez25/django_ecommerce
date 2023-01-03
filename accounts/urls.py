@@ -1,7 +1,8 @@
+from django.contrib.auth.views import LogoutView
 from django.urls import path
 from django.views.generic import TemplateView
 
-from .views import UserRegistrationView, account_activation
+from .views import UserRegistrationView, account_activation, UserLoginView
 
 app_name = 'accounts'
 urlpatterns = [
@@ -9,4 +10,7 @@ urlpatterns = [
     path('account-activation/<slug:uidb64>/<slug:token>/', account_activation, name='activate'),
     path('activation/activation-email/sent/', TemplateView.as_view(template_name="accounts/activation-email-sent.html"),
          name='activation-email-sent'),
+    path('user-login/', UserLoginView.as_view(), name="user-login"),
+    path('user-logout/', LogoutView.as_view(next_page='/accounts/user-login/'),
+         name='user-logout')
 ]

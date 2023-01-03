@@ -1,8 +1,24 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import gettext_lazy as _
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
+
+
+class UserLoginForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super(UserLoginForm, self).__init__(*args, **kwargs)
+
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            'username',
+            'password',
+            Row(
+                Submit('submit', 'Login', css_class='btn btn-success', css_id='btnLogin'),
+                css_class='text-center'
+            )
+        )
 
 
 class UserRegistrationForm(forms.ModelForm):

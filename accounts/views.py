@@ -6,9 +6,10 @@ from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic import FormView
 from django.contrib.sites.shortcuts import get_current_site
+from django.contrib.auth.views import LoginView, LogoutView
 # from django.conf import settings
 
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, UserLoginForm
 from .utils import account_activation_token
 
 
@@ -68,3 +69,20 @@ def account_activation(request, uidb64, token):
 
     except ():
         pass
+
+
+class UserLoginView(LoginView):
+    template_name = 'accounts/login.html'
+    form_class = UserLoginForm
+
+    def get(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return redirect('/')
+        return super(UserLoginView, self).get(*args, **kwargs)
+
+    def get_success_url(self):
+        return reverse_lazy('shop:index')
+
+    def form_invalid(self, form):
+        return render(self.request, self.template_name, {'form': form})
+
