@@ -8,6 +8,7 @@ urlpatterns = i18n_patterns(
     path("admin/", admin.site.urls),
     path('rosetta/', include('rosetta.urls')),
     path('', include('shop.urls', namespace='shop')),
+    path('accounts/', include('accounts.urls',namespace='accounts'))
 )
 
 if settings.DEBUG:

@@ -36,13 +36,18 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'accounts.apps.AccountsConfig',
     'shop.apps.ShopConfig',
     'sorl.thumbnail',
     'crispy_forms',
     'crispy_bootstrap5',
+    'phonenumber_field',
     'rosetta',
 ]
-LOGIN_URL = '/admin/login/'
+
+PHONENUMBER_DEFAULT_REGION = "KE"
+
+AUTH_USER_MODEL = 'accounts.Account'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
@@ -108,6 +113,16 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = os.environ.get('HOST_EMAIL')
+# EMAIL_HOST_PASSWORD = os.environ.get('HOST_EMAIL_PASSWORD')
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

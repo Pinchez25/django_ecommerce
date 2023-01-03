@@ -1,7 +1,10 @@
 body{
-    /*padding-top: 80px;*/
+    /*padding-bottom: 220px;*/
 }
 .current-page{
     color: red;
     background-color: darkslategray;
+}
+.hide{
+    transform: translateY(-50px);
 }

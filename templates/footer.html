@@ -1,4 +1,4 @@
-<footer class="bg-light text-white">
+<footer class="bg-light text-white" id="footer">
     <div class="container p-4 pb-0 text-center">
         <section class="mb-4">
             <a class="btn text-white btn-floating m-1" style="background-color:#3b5998;" href="#">
@@ -30,6 +30,13 @@
 </footer>
 <script>
     const year = document.getElementById('year')
+    const footer = document.getElementById('footer')
 
     year.innerHTML = new Date().getFullYear().toString()
+
+    if ("{{ request.path }}" === "{% url 'accounts:activation-email-sent' %}") {
+        document.body.style.paddingBottom = "200px";
+        footer.classList.add('fixed-bottom')
+    }
+
 </script>
