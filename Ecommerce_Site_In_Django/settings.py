@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -114,7 +116,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 # EMAIL_HOST = "smtp.gmail.com"
@@ -123,6 +124,8 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # EMAIL_HOST_USER = os.environ.get('HOST_EMAIL')
 # EMAIL_HOST_PASSWORD = os.environ.get('HOST_EMAIL_PASSWORD')
 
+LOGIN_URL = reverse_lazy('accounts:user-login')
+LOGIN_REDIRECT_URL = reverse_lazy('shop:index')
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

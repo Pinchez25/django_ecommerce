@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Update your profile
+{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center m-3 p-3">
+        <div class="col-md-8">
+            <div class="card p-3 text-center" style="background-color:white;">
+
+                <div class="card-body">
+                    {% if form.errors %}
+                        {% for error in form.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+
+                    {% endif %}
+                    <form method="post">
+                        {% crispy form %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

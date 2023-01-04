@@ -83,3 +83,51 @@ class UserRegistrationForm(forms.ModelForm):
             raise forms.ValidationError(_('Email already exists'))
 
         return email
+
+
+class UserProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ['email', 'first_name', 'last_name', 'bio', 'country', 'contact', 'postal_address', 'address', 'city']
+        help_texts = {
+            'first_name': _('Specify your firstname'),
+            'last_name': _('Specify your lastname'),
+            'bio': _('Tell us about your self'),
+            'country': _('Specify your country'),
+            'contact': _('Enter your phone number'),
+            'postal_address': _('Specify your postal address'),
+            'address': _('Specify your residence'),
+            'city': _('Specify your city'),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(UserProfileUpdateForm, self).__init__(*args, **kwargs)
+
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            'email',
+            Row(
+                Column('first_name'),
+                Column('last_name'),
+            ),
+            'contact',
+            'country',
+            'bio',
+            'postal_address',
+            'address',
+            'city',
+            Row(
+                Submit('submit', 'Update Profile', css_class='btn btn-success', css_id='btnProfileUpdate'),
+                css_class='text-center'
+            )
+        )
+
+        self.fields['email'].widget.attrs['readonly'] = True
+
+    def clean_country(self):
+        country = self.cleaned_data.get('country')
+
+        if not country or country == "":
+            raise forms.ValidationError(_('Country Field is required'))
+
+        return country

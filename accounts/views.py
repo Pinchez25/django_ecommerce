@@ -1,15 +1,16 @@
 from django.contrib.auth import get_user_model, login
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.views.generic import FormView
+from django.views.generic import FormView, UpdateView
 from django.contrib.sites.shortcuts import get_current_site
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView
 # from django.conf import settings
 
-from .forms import UserRegistrationForm, UserLoginForm
+from .forms import UserRegistrationForm, UserLoginForm, UserProfileUpdateForm
 from .utils import account_activation_token
 
 
@@ -86,3 +87,16 @@ class UserLoginView(LoginView):
     def form_invalid(self, form):
         return render(self.request, self.template_name, {'form': form})
 
+
+class UpdateProfileView(LoginRequiredMixin, UpdateView):
+    template_name = 'accounts/profile.html'
+    form_class = UserProfileUpdateForm
+
+    def get_queryset(self):
+        return get_user_model().objects.filter(pk=self.kwargs.get('pk'))
+
+    def get_success_url(self):
+        return reverse_lazy('shop:index')
+
+    def form_invalid(self, form):
+        return render(self.request, self.template_name, {'form': form})

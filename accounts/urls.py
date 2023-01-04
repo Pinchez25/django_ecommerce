@@ -2,7 +2,7 @@ from django.contrib.auth.views import LogoutView
 from django.urls import path
 from django.views.generic import TemplateView
 
-from .views import UserRegistrationView, account_activation, UserLoginView
+from .views import UserRegistrationView, account_activation, UserLoginView,UpdateProfileView
 
 app_name = 'accounts'
 urlpatterns = [
@@ -12,5 +12,6 @@ urlpatterns = [
          name='activation-email-sent'),
     path('user-login/', UserLoginView.as_view(), name="user-login"),
     path('user-logout/', LogoutView.as_view(next_page='/accounts/user-login/'),
-         name='user-logout')
+         name='user-logout'),
+    path('user-profile/update/<str:pk>/', UpdateProfileView.as_view(), name='profile-update')
 ]
