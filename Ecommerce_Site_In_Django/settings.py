@@ -22,7 +22,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    #'django_admin_kubi',
+    'django_admin_kubi',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -46,10 +46,10 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-# DJANGO_ADMIN_KUBI = {
-#     'ADMIN_HISTORY': True,  # enables the history action panel
-#     'ADMIN_SEARCH': True,  # enables a full modal search
-# }
+DJANGO_ADMIN_KUBI = {
+    'ADMIN_HISTORY': True,  # enables the history action panel
+    'ADMIN_SEARCH': True,  # enables a full modal search
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
