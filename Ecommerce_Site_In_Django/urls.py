@@ -5,6 +5,7 @@ from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = i18n_patterns(
+    #path('admin/', include("django_admin_kubi.urls")),
     path("admin/", admin.site.urls),
     path('rosetta/', include('rosetta.urls')),
     path('', include('shop.urls', namespace='shop')),
