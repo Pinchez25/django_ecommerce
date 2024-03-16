@@ -12,3 +12,4 @@ venv.bak/
 # Translations
 *.mo
 *.__pycache__/
+*/*/__pycache__/

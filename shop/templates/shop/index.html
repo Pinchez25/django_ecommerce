@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load thumbnail %}
 
 {% block content %}
     <div class="row">
@@ -32,9 +33,12 @@
             <div class="row">
                 {% for product in products %}
                     <div class="col-lg-4 mb-4">
-                        <div class="card">
+                        <div class="card overflow-hidden" style="max-height: 400px;">
                             <a href="{{ product.get_absolute_url }}">
-                                <img src="{{ product.get_image_url }}" class="card-img-top" alt="{{ product.title }}">
+                                {% thumbnail product.image "x200"  as im %}
+                                    <img src="{{ im.url }}" class="card-img-top" alt="{{ product.title }}" style="height: 200px; object-fit: cover; object-position: center;">
+                                    {#                                <img src="{{ product.get_image_url }}" class="card-img-top" alt="{{ product.title }}">#}
+                                {% endthumbnail %}
                             </a>
                             <div class="card-body">
                                 <h5 class="card-title">{{ product.title }}</h5>

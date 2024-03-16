@@ -1,20 +1,12 @@
-
-
 from pathlib import Path
 
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-^=&+sdmoes1^%@9x64b^gq#ntg+oj5w=93egt!s1b!h+@zvkmm"
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -36,6 +28,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'phonenumber_field',
     'rosetta',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 PHONENUMBER_DEFAULT_REGION = "KE"
@@ -125,6 +118,14 @@ LOGIN_REDIRECT_URL = reverse_lazy('shop:index')
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
+
+# redis cache
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379",
+    }
+}
 
 LANGUAGE_CODE = "en"
 
