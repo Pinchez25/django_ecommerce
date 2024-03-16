@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-01 17:25+0300\n"
+"POT-Creation-Date: 2024-03-16 18:53+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,209 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\Ecommerce_Site_In_Django\settings.py:123
+
+#: .\Ecommerce_Site_In_Django\settings.py:145
 msgid "English"
 msgstr ""
 
-#: .\Ecommerce_Site_In_Django\settings.py:124
+#: .\Ecommerce_Site_In_Django\settings.py:146
 msgid "Swahili"
+msgstr ""
+
+#: .\accounts\forms.py:20 .\templates\navbar.html:61
+msgid "Login"
+msgstr ""
+
+#: .\accounts\forms.py:31
+msgid "Confirm Password"
+msgstr ""
+
+#: .\accounts\forms.py:34
+msgid "Please confirm your password..."
+msgstr ""
+
+#: .\accounts\forms.py:42
+msgid "Enter username..."
+msgstr ""
+
+#: .\accounts\forms.py:43
+msgid "Your password..."
+msgstr ""
+
+#: .\accounts\forms.py:44
+msgid "Enter your email address..."
+msgstr ""
+
+#: .\accounts\forms.py:62
+msgid "Register"
+msgstr ""
+
+#: .\accounts\forms.py:72
+msgid "Username already exists"
+msgstr ""
+
+#: .\accounts\forms.py:81
+msgid "Password mismatch!"
+msgstr ""
+
+#: .\accounts\forms.py:88
+msgid "Email already exists"
+msgstr ""
+
+#: .\accounts\forms.py:99
+msgid "Specify your firstname"
+msgstr ""
+
+#: .\accounts\forms.py:100
+msgid "Specify your lastname"
+msgstr ""
+
+#: .\accounts\forms.py:101
+msgid "Tell us about your self"
+msgstr ""
+
+#: .\accounts\forms.py:102
+msgid "Specify your country"
+msgstr ""
+
+#: .\accounts\forms.py:103
+msgid "Enter your phone number"
+msgstr ""
+
+#: .\accounts\forms.py:104
+msgid "Specify your postal address"
+msgstr ""
+
+#: .\accounts\forms.py:105
+msgid "Specify your residence"
+msgstr ""
+
+#: .\accounts\forms.py:106
+msgid "Specify your city"
+msgstr ""
+
+#: .\accounts\forms.py:128 .\accounts\templates\accounts\user-profile.html:133
+msgid "Update Profile"
+msgstr ""
+
+#: .\accounts\forms.py:140
+msgid "Country Field is required"
+msgstr ""
+
+#: .\accounts\models.py:18
+msgid "Superuser must be assigned to is_staff=True"
+msgstr ""
+
+#: .\accounts\models.py:22
+msgid "Superuser must be assigned to is_superuser=True"
+msgstr ""
+
+#: .\accounts\models.py:26
+msgid "Superuser must be assigned to is_active=True"
+msgstr ""
+
+#: .\accounts\models.py:41
+msgid "Email address is required"
+msgstr ""
+
+#: .\accounts\models.py:54
+msgid "Email"
+msgstr ""
+
+#: .\accounts\models.py:55
+msgid "username"
+msgstr ""
+
+#: .\accounts\models.py:56
+msgid "firstname"
+msgstr ""
+
+#: .\accounts\models.py:57
+msgid "Bio"
+msgstr ""
+
+#: .\accounts\models.py:58 .\shop\models.py:29
+#: .\shop\templates\shop\cart.html:43
+msgid "Image"
+msgstr ""
+
+#: .\accounts\models.py:59
+msgid "country"
+msgstr ""
+
+#: .\accounts\models.py:59
+msgid "----------select country----------"
+msgstr ""
+
+#: .\accounts\models.py:60
+msgid "Contact"
+msgstr ""
+
+#: .\accounts\models.py:61
+msgid "Postal Address"
+msgstr ""
+
+#: .\accounts\models.py:62
+msgid "address"
+msgstr ""
+
+#: .\accounts\models.py:63
+msgid "City"
+msgstr ""
+
+#: .\accounts\models.py:83 .\accounts\models.py:84
+msgid "Accounts"
+msgstr ""
+
+#: .\accounts\templates\accounts\login.html:12
+msgid "Welcome Back"
+msgstr ""
+
+#: .\accounts\templates\accounts\login.html:19
+msgid "Don't have an account? Register"
+msgstr ""
+
+#: .\accounts\templates\accounts\user-profile.html:98
+msgid "Profile Information"
+msgstr ""
+
+#: .\accounts\templates\accounts\user-profile.html:101
+msgid "Username:"
+msgstr ""
+
+#: .\accounts\templates\accounts\user-profile.html:105
+msgid "Email:"
+msgstr ""
+
+#: .\accounts\templates\accounts\user-profile.html:111
+msgid "Bio:"
+msgstr ""
+
+#: .\accounts\templates\accounts\user-profile.html:117
+msgid "Country:"
+msgstr ""
+
+#: .\accounts\templates\accounts\user-profile.html:123
+msgid "Contact:"
+msgstr ""
+
+#: .\accounts\templates\accounts\user-profile.html:127
+msgid "Address:"
+msgstr ""
+
+#: .\accounts\templates\accounts\user-registration.html:8
+msgid "Register with us"
+msgstr ""
+
+#: .\accounts\templates\accounts\user-registration.html:11
+msgid "Already have an account? Login"
 msgstr ""
 
 #: .\shop\forms.py:8
 msgid "quantity"
 msgstr ""
 
-#: .\shop\forms.py:16 .\shop\templates\shop\index.html:65
+#: .\shop\forms.py:16 .\shop\templates\shop\index.html:77
 msgid "Add to Cart"
 msgstr ""
 
@@ -45,11 +235,11 @@ msgstr ""
 msgid "name"
 msgstr ""
 
-#: .\shop\models.py:20 .\shop\templates\shop\product_detail.html:28
+#: .\shop\models.py:20
 msgid "Category"
 msgstr ""
 
-#: .\shop\models.py:21 .\shop\templates\shop\index.html:25
+#: .\shop\models.py:21
 msgid "Categories"
 msgstr ""
 
@@ -61,15 +251,11 @@ msgstr ""
 msgid "Product Name"
 msgstr ""
 
-#: .\shop\models.py:29 .\shop\templates\shop\cart.html:44
-msgid "Image"
-msgstr ""
-
 #: .\shop\models.py:30
 msgid "description"
 msgstr ""
 
-#: .\shop\models.py:31 .\shop\templates\shop\cart.html:34
+#: .\shop\models.py:31 .\shop\templates\shop\cart.html:33
 msgid "price"
 msgstr ""
 
@@ -77,11 +263,11 @@ msgstr ""
 msgid "available"
 msgstr ""
 
-#: .\shop\models.py:51
+#: .\shop\models.py:54
 msgid "Product"
 msgstr ""
 
-#: .\shop\models.py:52
+#: .\shop\models.py:55
 msgid "Products"
 msgstr ""
 
@@ -89,81 +275,102 @@ msgstr ""
 msgid "Your Cart"
 msgstr ""
 
-#: .\shop\templates\shop\cart.html:27
+#: .\shop\templates\shop\cart.html:26
 msgid "Your Items"
 msgstr ""
 
-#: .\shop\templates\shop\cart.html:31
+#: .\shop\templates\shop\cart.html:30
 msgid "Sort by:"
 msgstr ""
 
-#: .\shop\templates\shop\cart.html:47
-#: .\shop\templates\shop\product_detail.html:24
+#: .\shop\templates\shop\cart.html:46
+#: .\shop\templates\shop\product_detail.html:74
 msgid "Description"
 msgstr ""
 
-#: .\shop\templates\shop\cart.html:50
+#: .\shop\templates\shop\cart.html:49
 msgid "Quantity"
 msgstr ""
 
-#: .\shop\templates\shop\cart.html:53
+#: .\shop\templates\shop\cart.html:52
 msgid "Sub-Total"
 msgstr ""
 
-#: .\shop\templates\shop\cart.html:82 .\shop\templates\shop\index.html:63
+#: .\shop\templates\shop\cart.html:81 .\shop\templates\shop\index.html:69
 msgid "Price:"
 msgstr ""
 
-#: .\shop\templates\shop\cart.html:88
+#: .\shop\templates\shop\cart.html:87
 msgid "Category:"
 msgstr ""
 
-#: .\shop\templates\shop\cart.html:142
+#: .\shop\templates\shop\cart.html:141
 msgid "Cart Total:"
 msgstr ""
 
-#: .\shop\templates\shop\cart.html:152
+#: .\shop\templates\shop\cart.html:154
 msgid "Continue shopping"
 msgstr ""
 
-#: .\shop\templates\shop\cart.html:161
-msgid "Checkout"
+#: .\shop\templates\shop\index.html:11
+msgid "Search Products"
 msgstr ""
 
-#: .\shop\templates\shop\index.html:7
-msgid "Thanks for Visiting Our Shop"
+#: .\shop\templates\shop\index.html:13
+msgid "Search products..."
 msgstr ""
 
 #: .\shop\templates\shop\index.html:14
-msgid "Search for a product"
+msgid "Search"
 msgstr ""
 
-#: .\shop\templates\shop\index.html:16
-msgid "Type in to search..."
+#: .\shop\templates\shop\index.html:17
+msgid "Filter by Category"
 msgstr ""
 
-#: .\shop\templates\shop\index.html:18
-msgid "Search ..."
+#: .\shop\templates\shop\index.html:21
+msgid "All Categories"
 msgstr ""
 
-#: .\shop\templates\shop\index.html:31
-msgid "All"
+#: .\shop\templates\shop\index.html:30
+msgid "No Categories Found"
 msgstr ""
 
-#: .\shop\templates\shop\index.html:41
-msgid "No Categories Founds"
+#: .\shop\templates\shop\index.html:73
+msgid "View Details"
 msgstr ""
 
-#: .\shop\templates\shop\index.html:71
-msgid "OOPS! No Products Founds"
+#: .\shop\templates\shop\index.html:84
+msgid "OOPS! No Products Found"
 msgstr ""
 
-#: .\shop\templates\shop\product_detail.html:20
-msgid "Title"
+#: .\shop\templates\shop\index.html:91
+msgid "Page navigation"
 msgstr ""
 
-#: .\shop\templates\shop\product_detail.html:33
+#: .\shop\templates\shop\product_detail.html:71
 msgid "Price"
+msgstr ""
+
+#: .\shop\templates\shop\product_detail.html:72
+msgid "Availability"
+msgstr ""
+
+#: .\shop\tests\test_forms.py:14
+msgid "Ensure this value is greater than or equal to 1."
+msgstr ""
+
+#: .\shop\tests\test_forms.py:25
+msgid "This field is required."
+msgstr ""
+
+#: .\shop\views.py:22
+msgid "Our products"
+msgstr ""
+
+#: .\shop\views.py:28
+#, python-brace-format
+msgid "Search results for `{search_query}`"
 msgstr ""
 
 #: .\templates\base.html:13
@@ -174,6 +381,26 @@ msgstr ""
 msgid "Online Shop"
 msgstr ""
 
+#: .\templates\navbar.html:9
+msgid "Toggle Navigation"
+msgstr ""
+
 #: .\templates\navbar.html:19
 msgid "Choose Language"
+msgstr ""
+
+#: .\templates\navbar.html:53
+msgid "Profile Picture"
+msgstr ""
+
+#: .\templates\navbar.html:58
+msgid "Logout"
+msgstr ""
+
+#: .\templates\navbar.html:64
+msgid "Profile"
+msgstr ""
+
+#: .\templates\navbar.html:68
+msgid "Settings"
 msgstr ""

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block styles %}
     <style>
@@ -89,51 +90,51 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row justify-content-center align-content-center">
-        <div class="col-md-10">
-            <div class="profile-container">
-                <img src="{{ user.image.url }}" class="profile-pic" alt="Profile Picture">
-                <div class="profile-info">
-                    <h3>Profile Information</h3>
-                    <ul class="info-list">
-                        <li>
-                            <span class="label">Username:</span><br>
-                            <span id="username">{{ user.get_full_name | default:user.username |title }}</span>
-                        </li>
-                        <li>
-                            <span class="label">Email:</span><br>
-                            <span id="email">
-                                <a href="mailto://{{ user.email }}"
-                                   class="text-primary text-decoration-none">{{ user.email }}</a>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="label">Bio:</span><br>
-                            <span id="bio">
-              {{ user.bio | default:"No bio available" | linebreaks }}
-          </span>
-                        </li>
-                        <li>
-                            <span class="label">Country:</span><br>
-                            <span id="country">
-                {{ user.country | default:"No country available" }}
-          </span>
-                        </li>
-                        <li>
-                            <span class="label">Contact:</span><br>
-                            <span id="contact">{{ user.contact|default:"Not Available" }}</span>
-                        </li>
-                        <li>
-                            <span class="label">Address:</span><br>
-                            <span id="address">
-                {{ user.address | default:"No address available" }}
-          </span>
-                        </li>
-                    </ul>
-                    <a href="{% url 'accounts:profile-update' user.id %}" class="btn btn-update">Update Profile</a>
-                </div>
-            </div>
+  <div class="row justify-content-center align-content-center">
+    <div class="col-md-10">
+      <div class="profile-container">
+        <img src="{{ user.image.url }}" class="profile-pic" alt="Profile Picture">
+        <div class="profile-info">
+          <h3>{% trans "Profile Information" %}</h3>
+          <ul class="info-list">
+            <li>
+              <span class="label">{% trans "Username:" %}</span><br>
+              <span id="username">{{ user.get_full_name | default:user.username | title }}</span>
+            </li>
+            <li>
+              <span class="label">{% trans "Email:" %}</span><br>
+              <span id="email">
+                <a href="mailto://{{ user.email }}" class="text-primary text-decoration-none">{{ user.email }}</a>
+              </span>
+            </li>
+            <li>
+              <span class="label">{% trans "Bio:" %}</span><br>
+              <span id="bio">
+                {{ user.bio | default:"{% trans 'No bio available' %}" | linebreaks }}
+              </span>
+            </li>
+            <li>
+              <span class="label">{% trans "Country:" %}</span><br>
+              <span id="country">
+                {{ user.country | default:"{% trans 'No country available' %}" }}
+              </span>
+            </li>
+            <li>
+              <span class="label">{% trans "Contact:" %}</span><br>
+              <span id="contact">{{ user.contact|default:"{% trans 'Not Available' %}" }}</span>
+            </li>
+            <li>
+              <span class="label">{% trans "Address:" %}</span><br>
+              <span id="address">
+                {{ user.address | default:"{% trans 'No address available' %}" }}
+              </span>
+            </li>
+          </ul>
+          <a href="{% url 'accounts:profile-update' user.id %}" class="btn btn-update">{% trans "Update Profile" %}</a>
         </div>
+      </div>
     </div>
+  </div>
 {% endblock %}
+
 

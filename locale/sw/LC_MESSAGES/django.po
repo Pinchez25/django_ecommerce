@@ -3,169 +3,375 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-01 17:25+0300\n"
-"PO-Revision-Date: 2023-01-01 17:37+0300\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: sw\n"
+"POT-Creation-Date: 2024-03-16 18:54+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
 
-#: .\Ecommerce_Site_In_Django\settings.py:123
+#: .\Ecommerce_Site_In_Django\settings.py:145
 msgid "English"
 msgstr "Kiingereza"
 
-#: .\Ecommerce_Site_In_Django\settings.py:124
+#: .\Ecommerce_Site_In_Django\settings.py:146
 msgid "Swahili"
 msgstr "Kiswahili"
+
+#: .\accounts\forms.py:20 .\templates\navbar.html:61
+msgid "Login"
+msgstr "Ingia"
+
+#: .\accounts\forms.py:31
+msgid "Confirm Password"
+msgstr "Thibitisha Nenosiri"
+
+#: .\accounts\forms.py:34
+msgid "Please confirm your password..."
+msgstr "Tafadhali thibitisha nenosiri lako..."
+
+#: .\accounts\forms.py:42
+msgid "Enter username..."
+msgstr "Ingiza jina la mtumiaji..."
+
+#: .\accounts\forms.py:43
+msgid "Your password..."
+msgstr "Nenosiri lako..."
+
+#: .\accounts\forms.py:44
+msgid "Enter your email address..."
+msgstr "Ingiza anwani yako ya barua pepe..."
+
+#: .\accounts\forms.py:62
+msgid "Register"
+msgstr "Jisajili"
+
+#: .\accounts\forms.py:72
+msgid "Username already exists"
+msgstr "Jina la mtumiaji lilipo tayari"
+
+#: .\accounts\forms.py:81
+msgid "Password mismatch!"
+msgstr "Nenosiri halilingani!"
+
+#: .\accounts\forms.py:88
+msgid "Email already exists"
+msgstr "Barua pepe ipo tayari"
+
+#: .\accounts\forms.py:99
+msgid "Specify your firstname"
+msgstr "Bainisha jina lako la kwanza"
+
+#: .\accounts\forms.py:100
+msgid "Specify your lastname"
+msgstr "Bainisha jina lako la mwisho"
+
+#: .\accounts\forms.py:101
+msgid "Tell us about your self"
+msgstr "Tuambie kuhusu wewe mwenyewe"
+
+#: .\accounts\forms.py:102
+msgid "Specify your country"
+msgstr "Bainisha nchi yako"
+
+#: .\accounts\forms.py:103
+msgid "Enter your phone number"
+msgstr "Ingiza nambari yako ya simu"
+
+#: .\accounts\forms.py:104
+msgid "Specify your postal address"
+msgstr "Bainisha anwani yako ya posta"
+
+#: .\accounts\forms.py:105
+msgid "Specify your residence"
+msgstr "Bainisha makazi yako"
+
+#: .\accounts\forms.py:106
+msgid "Specify your city"
+msgstr "Bainisha jiji lako"
+
+#: .\accounts\forms.py:128 .\accounts\templates\accounts\user-profile.html:133
+msgid "Update Profile"
+msgstr "Sasisha Wasifu"
+
+#: .\accounts\forms.py:140
+msgid "Country Field is required"
+msgstr "Sehemu ya Nchi Inahitajika"
+
+#: .\accounts\models.py:18
+msgid "Superuser must be assigned to is_staff=True"
+msgstr "Mtumiaji Mkuu Lazimisha Kupewa is_staff=True"
+
+#: .\accounts\models.py:22
+msgid "Superuser must be assigned to is_superuser=True"
+msgstr "Mtumiaji Mkuu Lazimisha Kupewa is_superuser=True"
+
+#: .\accounts\models.py:26
+msgid "Superuser must be assigned to is_active=True"
+msgstr "Mtumiaji Mkuu Lazimisha Kupewa is_active=True"
+
+#: .\accounts\models.py:41
+msgid "Email address is required"
+msgstr "Anwani ya barua pepe Inahitajika"
+
+#: .\accounts\models.py:54
+msgid "Email"
+msgstr "Barua pepe"
+
+#: .\accounts\models.py:55
+msgid "username"
+msgstr "jina la mtumiaji"
+
+#: .\accounts\models.py:56
+msgid "firstname"
+msgstr "jina la kwanza"
+
+#: .\accounts\models.py:57
+msgid "Bio"
+msgstr "Wasifu"
+
+#: .\accounts\models.py:58 .\shop\models.py:29
+#: .\shop\templates\shop\cart.html:43
+msgid "Image"
+msgstr "Picha"
+
+#: .\accounts\models.py:59
+msgid "country"
+msgstr "nchi"
+
+#: .\accounts\models.py:59
+msgid "----------select country----------"
+msgstr "----------chagua nchi----------"
+
+#: .\accounts\models.py:60
+msgid "Contact"
+msgstr "Mawasiliano"
+
+#: .\accounts\models.py:61
+msgid "Postal Address"
+msgstr "Anwani ya Posta"
+
+#: .\accounts\models.py:62
+msgid "address"
+msgstr "anwani"
+
+#: .\accounts\models.py:63
+msgid "City"
+msgstr "Jiji"
+
+#: .\accounts\models.py:83 .\accounts\models.py:84
+msgid "Accounts"
+msgstr "Akaunti"
+
+#: .\accounts\templates\accounts\login.html:12
+msgid "Welcome Back"
+msgstr "Karibu Tena"
+
+#: .\accounts\templates\accounts\login.html:19
+msgid "Don't have an account? Register"
+msgstr "Huna akaunti? Jisajili"
+
+#: .\accounts\templates\accounts\user-profile.html:98
+msgid "Profile Information"
+msgstr "Maelezo ya Wasifu"
+
+#: .\accounts\templates\accounts\user-profile.html:101
+msgid "Username:"
+msgstr "Jina la Mtumiaji:"
+
+#: .\accounts\templates\accounts\user-profile.html:105
+msgid "Email:"
+msgstr "Barua pepe:"
+
+#: .\accounts\templates\accounts\user-profile.html:111
+msgid "Bio:"
+msgstr "Wasifu:"
+
+#: .\accounts\templates\accounts\user-profile.html:117
+msgid "Country:"
+msgstr "Nchi:"
+
+#: .\accounts\templates\accounts\user-profile.html:123
+msgid "Contact:"
+msgstr "Mawasiliano:"
+
+#: .\accounts\templates\accounts\user-profile.html:127
+msgid "Address:"
+msgstr "Anwani:"
+
+#: .\accounts\templates\accounts\user-registration.html:8
+msgid "Register with us"
+msgstr "Jisajili Nasi"
+
+#: .\accounts\templates\accounts\user-registration.html:11
+msgid "Already have an account? Login"
+msgstr "Umeshajisaili? Ingia"
 
 #: .\shop\forms.py:8
 msgid "quantity"
 msgstr "wingi"
 
-#: .\shop\forms.py:16 .\shop\templates\shop\index.html:65
+#: .\shop\forms.py:16 .\shop\templates\shop\index.html:77
 msgid "Add to Cart"
 msgstr "Ongeza Kikapuni"
 
 #: .\shop\forms.py:24
 msgid "Please enter the quantity"
-msgstr "Tafadhali ongeza wingi"
+msgstr "Tafadhali ingiza wingi"
 
 #: .\shop\forms.py:26
 msgid "Quantity has to be greater than 0"
-msgstr "Lazima izidi sufuri"
+msgstr "Wingi lazima uwe mkubwa kuliko 0"
 
 #: .\shop\models.py:10
 msgid "name"
 msgstr "jina"
 
-#: .\shop\models.py:20 .\shop\templates\shop\product_detail.html:28
+#: .\shop\models.py:20
 msgid "Category"
-msgstr "Kategoria"
+msgstr "Jamii"
 
-#: .\shop\models.py:21 .\shop\templates\shop\index.html:25
+#: .\shop\models.py:21
 msgid "Categories"
-msgstr "Kategoria"
+msgstr "Jamii"
 
 #: .\shop\models.py:26
 msgid "category"
-msgstr "kategoria"
+msgstr "jamii"
 
 #: .\shop\models.py:27
 msgid "Product Name"
-msgstr "Jina la bidhaa"
-
-#: .\shop\models.py:29 .\shop\templates\shop\cart.html:44
-msgid "Image"
-msgstr "Picha"
+msgstr "Jina la Bidhaa"
 
 #: .\shop\models.py:30
 msgid "description"
 msgstr "maelezo"
 
-#: .\shop\models.py:31 .\shop\templates\shop\cart.html:34
+#: .\shop\models.py:31 .\shop\templates\shop\cart.html:33
 msgid "price"
 msgstr "bei"
 
 #: .\shop\models.py:32
 msgid "available"
-msgstr "iko"
+msgstr "inapatikana"
 
-#: .\shop\models.py:51
+#: .\shop\models.py:54
 msgid "Product"
 msgstr "Bidhaa"
 
-#: .\shop\models.py:52
+#: .\shop\models.py:55
 msgid "Products"
 msgstr "Bidhaa"
 
 #: .\shop\templates\shop\cart.html:6
 msgid "Your Cart"
-msgstr "Kikapu chako"
+msgstr "Kikapu Chako"
 
-#: .\shop\templates\shop\cart.html:27
+#: .\shop\templates\shop\cart.html:26
 msgid "Your Items"
-msgstr "Bidhaa zako"
+msgstr "Vitu Vako"
 
-#: .\shop\templates\shop\cart.html:31
+#: .\shop\templates\shop\cart.html:30
 msgid "Sort by:"
-msgstr "Panga na:"
+msgstr "Panga kwa:"
 
-#: .\shop\templates\shop\cart.html:47
-#: .\shop\templates\shop\product_detail.html:24
+#: .\shop\templates\shop\cart.html:46
+#: .\shop\templates\shop\product_detail.html:74
 msgid "Description"
 msgstr "Maelezo"
 
-#: .\shop\templates\shop\cart.html:50
+#: .\shop\templates\shop\cart.html:49
 msgid "Quantity"
 msgstr "Wingi"
 
-#: .\shop\templates\shop\cart.html:53
+#: .\shop\templates\shop\cart.html:52
 msgid "Sub-Total"
-msgstr "Bei"
+msgstr "Jumla Ndogo"
 
-#: .\shop\templates\shop\cart.html:82 .\shop\templates\shop\index.html:63
+#: .\shop\templates\shop\cart.html:81 .\shop\templates\shop\index.html:69
 msgid "Price:"
 msgstr "Bei:"
 
-#: .\shop\templates\shop\cart.html:88
+#: .\shop\templates\shop\cart.html:87
 msgid "Category:"
-msgstr "Kategoria:"
+msgstr "Jamii:"
 
-#: .\shop\templates\shop\cart.html:142
+#: .\shop\templates\shop\cart.html:141
 msgid "Cart Total:"
 msgstr "Jumla ya Kikapu:"
 
-#: .\shop\templates\shop\cart.html:152
+#: .\shop\templates\shop\cart.html:154
 msgid "Continue shopping"
 msgstr "Endelea Kununua"
 
-#: .\shop\templates\shop\cart.html:161
-msgid "Checkout"
-msgstr "Maliza Kununua"
+#: .\shop\templates\shop\index.html:11
+msgid "Search Products"
+msgstr "Tafuta Bidhaa"
 
-#: .\shop\templates\shop\index.html:7
-msgid "Thanks for Visiting Our Shop"
-msgstr "Asante Kwa Kutembelea Duka Letu"
+#: .\shop\templates\shop\index.html:13
+msgid "Search products..."
+msgstr "Tafuta bidhaa..."
 
 #: .\shop\templates\shop\index.html:14
-msgid "Search for a product"
-msgstr "Tafuta bidhaa"
+msgid "Search"
+msgstr "Tafuta"
 
-#: .\shop\templates\shop\index.html:16
-msgid "Type in to search..."
-msgstr "Andika bidhaa unayotafuta..."
+#: .\shop\templates\shop\index.html:17
+msgid "Filter by Category"
+msgstr "Chuja kwa Jamii"
 
-#: .\shop\templates\shop\index.html:18
-msgid "Search ..."
-msgstr "Tafuta ..."
+#: .\shop\templates\shop\index.html:21
+msgid "All Categories"
+msgstr "Jamii Zote"
 
-#: .\shop\templates\shop\index.html:31
-msgid "All"
-msgstr "Zote"
+#: .\shop\templates\shop\index.html:30
+msgid "No Categories Found"
+msgstr "Hakuna Jamii Zilizopatikana"
 
-#: .\shop\templates\shop\index.html:41
-msgid "No Categories Founds"
-msgstr "Hakuna Kategoria imepatikana"
+#: .\shop\templates\shop\index.html:73
+msgid "View Details"
+msgstr "Maelezo"
 
-#: .\shop\templates\shop\index.html:71
-msgid "OOPS! No Products Founds"
-msgstr "POLE! Hakuna bidhaa zimepatikana"
+#: .\shop\templates\shop\index.html:84
+msgid "OOPS! No Products Found"
+msgstr "Hapana Bidhaa Zilizopatikana!"
 
-#: .\shop\templates\shop\product_detail.html:20
-msgid "Title"
-msgstr "Jina"
+#: .\shop\templates\shop\index.html:91
+msgid "Page navigation"
+msgstr "Urambazaji wa Ukurasa"
 
-#: .\shop\templates\shop\product_detail.html:33
+#: .\shop\templates\shop\product_detail.html:71
 msgid "Price"
 msgstr "Bei"
+
+#: .\shop\templates\shop\product_detail.html:72
+msgid "Availability"
+msgstr "Upatikanaji"
+
+#: .\shop\tests\test_forms.py:14
+msgid "Ensure this value is greater than or equal to 1."
+msgstr "Hakikisha thamani hii ni kubwa kuliko au sawa na 1."
+
+#: .\shop\tests\test_forms.py:25
+msgid "This field is required."
+msgstr "Sehemu hii Inahitajika."
+
+#: .\shop\views.py:22
+msgid "Our products"
+msgstr "Bidhaa Zetu"
+
+#: .\shop\views.py:28
+#, python-brace-format
+msgid "Search results for {search_query}"
+msgstr "Matokeo ya Utafutaji kwa '{search_query}'"
 
 #: .\templates\base.html:13
 msgid "My Shop"
@@ -173,8 +379,28 @@ msgstr "Duka Langu"
 
 #: .\templates\navbar.html:7
 msgid "Online Shop"
-msgstr "Duka Mtandaoni"
+msgstr "Duka la Mtandaoni"
+
+#: .\templates\navbar.html:9
+msgid "Toggle Navigation"
+msgstr "Badilisha Urambazaji"
 
 #: .\templates\navbar.html:19
 msgid "Choose Language"
 msgstr "Chagua Lugha"
+
+#: .\templates\navbar.html:53
+msgid "Profile Picture"
+msgstr "Picha ya Wasifu"
+
+#: .\templates\navbar.html:58
+msgid "Logout"
+msgstr "Toka"
+
+#: .\templates\navbar.html:64
+msgid "Profile"
+msgstr "Wasifu"
+
+#: .\templates\navbar.html:68
+msgid "Settings"
+msgstr "Mipangilio"

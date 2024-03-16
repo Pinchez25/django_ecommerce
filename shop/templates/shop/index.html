@@ -32,21 +32,6 @@
                     {% endfor %}
                 </div>
 
-                {% comment %}
-                <select class="form-select mb-4 category-filter" aria-label="{% trans "Filter by category" %}">
-                    <option selected value="">{% trans "All Categories" %}</option>
-                    {% for category in categories %}
-                        <option value="{{ category.id }}">
-                            <a href="/{{ category.slug }}"
-                               class="text-decoration-none text-black">{{ category.name }}</a>
-                        </option>
-                    {% empty %}
-                        <option value="" disabled>
-                            {% trans "No Categories Found" %}
-                        </option>
-                    {% endfor %}
-                </select>
-{% endcomment %}
             </div>
         </div>
 
@@ -68,7 +53,7 @@
                                 <p class="card-text">
                                     {% trans "Price:" %} Ksh.{{ product.price|floatformat:"2" }}
                                 </p>
-                                <div class="d-flex justify-content-between align-items-center text-center">
+                                <div class="d-flex flex-column justify-content-between align-items-center text-center">
                                     <a href="{{ product.get_absolute_url }}"
                                        class="btn btn-primary btn-block">{% trans 'View Details' %}
                                     </a>
