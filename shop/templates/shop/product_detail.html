@@ -2,51 +2,89 @@
 {% load i18n %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% block styles %}
+    <style>
+        /* Custom CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
 
+        .product-img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-details {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .availability {
+            margin-top: 10px;
+            font-style: italic;
+            color: #28a745;
+        }
+
+        .product-description {
+            margin-top: 20px;
+            color: #6c757d;
+        }
+
+        .btn-add-to-cart {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #0056b3;
+        }
+    </style>
+{% endblock %}
 {% block title %}
     {{ product.title }}
 {% endblock %}
-
 {% block content %}
-    <div class="row m-3 mb-3">
-        <div class="col-md-12">
-            <div class="card shadow-sm bg-gradient">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="{{ product.get_image_url }}" alt="{{ product.title }}" style="width: 300px;">
-                        </div>
-                        <div class="col-md-8">
-                            <h3>{% trans 'Title' %}</h3>
-                            <p>
-                                {{ product.title }}
-                            </p>
-                            <h3>{% trans 'Description' %}</h3>
-                            <p>
-                                {{ product.description|linebreaks }}
-                            </p>
-                            <h3>{% trans 'Category' %}</h3>
-                            <p>
-                                <a href="{{ product.category.get_absolute_url }}"
-                                   class="text-decoration-none">{{ product.category.name }}</a>
-                            </p>
-                            <h3>{% trans 'Price' %}</h3>
-                            <p>
-                                Ksh. {{ product.price|floatformat:"2" }}
-                            </p>
-                            <br>
-                            <form method="post">
-                                {% csrf_token %}
-                                {% crispy form %}
-                            </form>
-                        </div>
-                    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <img src="{{ product.get_image_url }}" alt="{{ product.title }}" class="product-img">
+        </div>
+        <div class="col-md-6">
+            <div class="product-details">
+                <h1>{{ product.title }}</h1>
+                <div class="price">{% trans 'Price' %}: Ksh. {{ product.price|floatformat:"2" }}</div>
+                <div class="availability">{% trans 'Availability' %}: Available</div>
+                <div class="product-description">
+                    <h3>{% trans 'Description' %}:</h3>
+                    <p>
+                        {{ product.description|linebreaks }}
+                    </p>
                 </div>
+                <br><br>
+                <form method="post">
+                    {% csrf_token %}
+                    {% crispy form %}
+                </form>
             </div>
         </div>
     </div>
 {% endblock %}
-
 {% block scripts %}
     <script>
         $(document).ready(function () {
@@ -82,3 +120,4 @@
 
     </script>
 {% endblock %}
+

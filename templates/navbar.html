@@ -6,7 +6,7 @@
         <!-- Navbar brand -->
         <a class="navbar-brand" href="{% url 'shop:index' %}">{% trans "Online Shop" %}</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDropdown"
-                aria-expanded="false" aria-label="Toggle Navigation">
+                aria-expanded="false" aria-label="{% trans "Toggle Navigation" %}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -34,12 +34,6 @@
                 </li>
             </ul>
         </div>
-
-        {% if request.user.is_authenticated %}
-            <a href="{% url 'accounts:user-logout' %}" class="btn btn-primary">Logout</a>
-        {% else %}
-            <a href="{% url 'accounts:user-login' %}" class="btn btn-primary">Login</a>
-        {% endif %}
         <ul class="navbar-nav d-flex flex-row me-1">
             <li class="nav-item me-3 me-lg-0">
                 <a class="nav-link text-white position-relative m-3" style="height: 2rem;"
@@ -52,23 +46,28 @@
 
             </li>
         </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    <img src="https://robohash.org/peter" alt="{% trans "Profile Picture" %}" class="rounded-circle bg-white" width="32"
+                         height="32">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'accounts:user-logout' %}" class="dropdown-item">{% trans "Logout" %}</a></li>
+{#                        {{ request.user.country.unicode_flag }}#}
+                    {% else %}
+                        <li><a href="{% url 'accounts:user-login' %}" class="dropdown-item">{% trans "Login" %}</a></li>
+                    {% endif %}
 
-        {% comment %}
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Icons -->
-            <ul class="navbar-nav d-flex flex-row me-1">
-                <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link text-white position-relative m-3" style="height: 2rem;"
-                       href="{% url 'shop:shopping_cart' %}">
-                        <i class="bi bi-cart2" style="font-size: large;"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                           <span id="cart-total">{{ basket|length }}</span>
-                    </span>
-                    </a>
-
-                </li>
-            </ul>
-        </div>
-        {% endcomment %}
+                    <li><a class="dropdown-item" href="#">{% trans "Profile" %}</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">{% trans "Settings" %}</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </nav>

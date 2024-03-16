@@ -16,13 +16,18 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap-icons.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .asteriskField {
+            display: none;
+        }
+    </style>
     {% block styles %}
     {% endblock %}
 </head>
 <body>
 {% include 'navbar.html' %}
 
-<div class="container">
+<div class="container my-3">
 
     {% block content %}
 

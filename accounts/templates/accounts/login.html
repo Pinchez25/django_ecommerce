@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-
+{% load i18n %}
 {% block title %}
     User Login
 {% endblock %}
@@ -8,18 +8,17 @@
 {% block content %}
     <div class="row justify-content-center m-3">
         <div class="col-md-8">
-            <div class="card p-3">
-                <div class="card-body">
-                    <div class="card-text text-center h3">User Login</div>
-                    <form method="post">
-                        {% crispy form %}
-                    </form>
-                    <div class="card-text text-primary text-center mt-3">
-                        <a href="{% url 'accounts:user-registration' %}">Don't have an account? Register</a>
-                    </div>
-                </div>
+            <div class="text-center h3">
+                {% trans "Welcome Back" %}
+            </div>
+            <div>
+                {% crispy form %}
+            </div>
+            <div class="text-primary text-center mt-3">
+                <a href="{% url 'accounts:user-registration' %}" class="text-decoration-none">
+                    {% trans "Don't have an account? Register" %}
+                </a>
             </div>
         </div>
-
     </div>
 {% endblock %}

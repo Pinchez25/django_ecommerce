@@ -1,23 +1,15 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
+{% load i18n %}
 {% block content %}
     <div class="row justify-content-center mt-3 mb-3">
         <div class="col-md-8">
-            <div class="card p-3" style="background-color: white;">
-                <div class="card-body">
-                    <div class="card-text text-center h3">Register with us</div>
-                    <form method="post">
+                    <div class="text-center h3">{% trans 'Register with us' %}</div>
                         {% crispy form %}
-                    </form>
-
-                    <div class="card-text text-primary text-center mt-3">
-                        <a href="{% url 'accounts:user-login' %}">Already have an account? Login</a>
+                    <div class="text-primary text-center mt-3">
+                        <a href="{% url 'accounts:user-login' %}" class="text-decoration-none">{% trans 'Already have an account? Login' %}</a>
                     </div>
-
-
-                </div>
-            </div>
         </div>
     </div>
 

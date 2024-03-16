@@ -51,9 +51,6 @@ def product_detail(request, id_, slug):
     product = get_object_or_404(Product, id=id_, slug=slug, available=True)
     form = AddToCartForm()
 
-    # if not form.is_valid():
-    #     return form.errors
-
     return render(request, 'shop/product_detail.html', {
         'product': product,
         'form': form,

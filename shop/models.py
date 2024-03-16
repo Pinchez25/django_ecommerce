@@ -40,6 +40,9 @@ class Product(models.Model):
         else:
             return ''
 
+    def is_available(self):
+        return self.available
+
     def get_absolute_url(self):
         return reverse('shop:product_detail', args=[self.id, self.slug])
 

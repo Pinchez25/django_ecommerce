@@ -1,3 +1,4 @@
+from crispy_forms.bootstrap import StrictButton
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import AuthenticationForm
@@ -15,10 +16,14 @@ class UserLoginForm(AuthenticationForm):
             'username',
             'password',
             Row(
-                Submit('submit', 'Login', css_class='btn btn-success', css_id='btnLogin'),
+                # Submit('submit', _('Login'), css_class='btn btn-success', css_id='btnLogin'),
+                StrictButton(_('Login'), type='submit', css_class='btn btn-outline-info', css_id='btnLogin'),
                 css_class='text-center'
             )
         )
+        # add w-100 class to username and password fields
+        self.fields['username'].widget.attrs.update({'class': 'w-100'})
+        self.fields['password'].widget.attrs.update({'class': 'w-100'})
 
 
 class UserRegistrationForm(forms.ModelForm):
@@ -54,7 +59,7 @@ class UserRegistrationForm(forms.ModelForm):
                 Column('password2'),
             ),
             Row(
-                Submit('submit', 'Register', css_class='btn btn-success', css_id='btnRegister'),
+                StrictButton(_('Register'), type='submit', css_class='btn btn-outline-info', css_id='btnRegister'),
                 css_class='text-center'
             )
         )
@@ -117,7 +122,9 @@ class UserProfileUpdateForm(forms.ModelForm):
             'address',
             'city',
             Row(
-                Submit('submit', 'Update Profile', css_class='btn btn-success', css_id='btnProfileUpdate'),
+                # Submit('submit', 'Update Profile', css_class='btn btn-success', css_id='btnProfileUpdate'),
+                StrictButton(_('Update Profile'), type='submit', css_class='btn btn-outline-info',
+                             css_id='btnProfileUpdate'),
                 css_class='text-center'
             )
         )
