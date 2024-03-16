@@ -5,7 +5,7 @@ from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.views.generic import FormView, UpdateView
+from django.views.generic import FormView, UpdateView, TemplateView
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.views import LoginView
 # from django.conf import settings
@@ -88,15 +88,32 @@ class UserLoginView(LoginView):
         return render(self.request, self.template_name, {'form': form})
 
 
+class UserProfileView(LoginRequiredMixin, TemplateView):
+    template_name = 'accounts/user-profile.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserProfileView, self).get_context_data(**kwargs)
+        context['user'] = get_user_model().objects.get(pk=self.kwargs.get('pk'))
+        return context
+
+
 class UpdateProfileView(LoginRequiredMixin, UpdateView):
     template_name = 'accounts/profile.html'
     form_class = UserProfileUpdateForm
+
+    # you can't update another user's profile
+    def get(self, request, *args, **kwargs):
+        if request.user.pk != int(kwargs.get('pk')):
+            return redirect('shop:index')
+        return super(UpdateProfileView, self).get(request, *args, **kwargs)
 
     def get_queryset(self):
         return get_user_model().objects.filter(pk=self.kwargs.get('pk'))
 
     def get_success_url(self):
-        return reverse_lazy('shop:index')
+        return reverse_lazy('accounts:user-profile', kwargs={'pk': self.kwargs.get('pk')})
 
     def form_invalid(self, form):
         return render(self.request, self.template_name, {'form': form})
+
+

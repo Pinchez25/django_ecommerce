@@ -93,7 +93,8 @@ class UserRegistrationForm(forms.ModelForm):
 class UserProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
-        fields = ['email', 'first_name', 'last_name', 'bio', 'country', 'contact', 'postal_address', 'address', 'city']
+        fields = ['email', 'first_name', 'last_name', 'image', 'bio', 'country', 'contact', 'postal_address', 'address',
+                  'city']
         help_texts = {
             'first_name': _('Specify your firstname'),
             'last_name': _('Specify your lastname'),
@@ -115,6 +116,7 @@ class UserProfileUpdateForm(forms.ModelForm):
                 Column('first_name'),
                 Column('last_name'),
             ),
+            'image',
             'contact',
             'country',
             'bio',

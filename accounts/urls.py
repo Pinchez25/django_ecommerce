@@ -2,7 +2,7 @@ from django.contrib.auth.views import LogoutView, PasswordResetView
 from django.urls import path
 from django.views.generic import TemplateView
 
-from .views import UserRegistrationView, account_activation, UserLoginView, UpdateProfileView
+from .views import UserRegistrationView, account_activation, UserLoginView, UpdateProfileView, UserProfileView
 
 app_name = 'accounts'
 urlpatterns = [
@@ -13,6 +13,7 @@ urlpatterns = [
     path('user-login/', UserLoginView.as_view(), name="user-login"),
     path('user-logout/', LogoutView.as_view(next_page='/accounts/user-login/'),
          name='user-logout'),
+    path('user-profile/<str:pk>/', UserProfileView.as_view(), name='user-profile'),
     path('user-profile/update/<str:pk>/', UpdateProfileView.as_view(), name='profile-update'),
 
     # password reset functionality

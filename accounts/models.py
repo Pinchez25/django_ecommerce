@@ -55,6 +55,7 @@ class Account(AbstractUser):
     username = models.CharField(_('username'), max_length=150, unique=True)
     first_name = models.CharField(_('firstname'), max_length=150, blank=True)
     bio = models.TextField(_('Bio'), max_length=500, blank=True)
+    image = models.ImageField(_('Image'), upload_to='profile/', default='default.jpg')
     country = CountryField(_('country'), blank_label=_('----------select country----------'))
     contact = PhoneNumberField(_('Contact'), blank=True)
     postal_address = models.CharField(max_length=50, blank=True, verbose_name=_('Postal Address'))

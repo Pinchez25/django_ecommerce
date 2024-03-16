@@ -50,7 +50,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                    aria-expanded="false">
-                    <img src="https://robohash.org/peter" alt="{% trans "Profile Picture" %}" class="rounded-circle bg-white" width="32"
+                    <img src="{{ request.user.image.url }}" alt="{% trans "Profile Picture" %}" class="rounded-circle bg-white" width="32"
                          height="32">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -61,7 +61,7 @@
                         <li><a href="{% url 'accounts:user-login' %}" class="dropdown-item">{% trans "Login" %}</a></li>
                     {% endif %}
 
-                    <li><a class="dropdown-item" href="#">{% trans "Profile" %}</a></li>
+                    <li><a class="dropdown-item" href="{% url 'accounts:user-profile' request.user.id %}">{% trans "Profile" %}</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
