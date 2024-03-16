@@ -1,13 +1,19 @@
+import os
 from decimal import Decimal
 
+import stripe
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q
 from django.http import JsonResponse
-from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+
 from .cart import Basket
 from .forms import AddToCartForm
 from .models import Category, Product
-from django.utils.translation import gettext_lazy as _
+
+stripe.api_key = os.environ.get('STRIPE_KEY')
 
 
 # Create your views here.
@@ -126,10 +132,36 @@ def remove_from_cart(request):
         else:
             print("Undefined product id")
 
-# def search_product(request):
-#     if request.method == "GET":
-#         print(request.GET)
-#
-#     return JsonResponse({
-#         'message': f'You searched for'
-#     })
+
+def create_checkout_session(request):
+    try:
+        # user = request.user
+        basket = Basket(request)
+        line_items = []
+        for item in basket:
+            product = item['product']
+            line_items.append({
+                'price_data': {
+                    'currency': 'usd',
+                    'product_data': {
+                        'name': product.title,
+                    },
+                    'unit_amount': int((product.price / 150) * 100),
+                },
+                'quantity': item['quantity'],
+            })
+        checkout_session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=line_items,
+            mode='payment',
+            success_url=request.build_absolute_uri(reverse_lazy('shop:checkout-success')),
+            cancel_url=request.build_absolute_uri(reverse_lazy('shop:cancel-checkout')),
+
+        )
+        # clear the basket after a successful checkout
+        basket.clear_basket()
+        return redirect(checkout_session.url, code=303)
+    except Exception as e:
+        return JsonResponse({
+            'message': f'Error creating checkout session {e}',
+        })
