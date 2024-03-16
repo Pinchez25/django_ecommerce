@@ -7,16 +7,19 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .cart import Basket
 from .forms import AddToCartForm
 from .models import Category, Product
+from django.utils.translation import gettext_lazy as _
 
 
 # Create your views here.
 def index(request, category_slug=None):
     category = None
+    page_description = _("Our products")
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
     search_query = ''
-    if request.GET.get('search_product'):
-        search_query = request.GET.get('search_product')
+    if request.GET.get('search_query'):
+        search_query = request.GET.get('search_query')
+        page_description = _(f"Search results for `{search_query}`")
         products = products.filter(
             Q(title__icontains=search_query)
             | Q(description__icontains=search_query)
@@ -43,7 +46,8 @@ def index(request, category_slug=None):
         'categories': categories,
         'products': products,
         'query': search_query,
-        'paginator':paginator,
+        'paginator': paginator,
+        'page_description': page_description,
     })
 
 

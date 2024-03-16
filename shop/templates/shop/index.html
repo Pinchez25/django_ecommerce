@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-3  mt-4 search-box">
             <div id="search-filter-container">
-                <form>
+                <form action="{% url 'shop:index' %}">
                     <div class="input-group mb-3">
                         <label for="search_product_input" class="h4 mb-4">{% trans "Search Products" %}</label>
                         <input type="text" class="form-control w-100" id="search_product_input"
@@ -15,28 +15,51 @@
                     </div>
                 </form>
                 <h4 class="mb-4">{% trans "Filter by Category" %}</h4>
+                <div class="list-group mb-4 category-filter">
+                    <button type="button" class="list-group-item list-group-item-action active" aria-current="true"
+                            value="">
+                        {% trans "All Categories" %}
+                    </button>
+                    {% for category in categories %}
+                        <a href="/{{ category.slug }}" class="list-group-item list-group-item-action"
+                           data-value="{{ category.id }}">
+                            {{ category.name }}
+                        </a>
+                    {% empty %}
+                        <button type="button" class="list-group-item list-group-item-action" disabled>
+                            {% trans "No Categories Found" %}
+                        </button>
+                    {% endfor %}
+                </div>
+
+                {% comment %}
                 <select class="form-select mb-4 category-filter" aria-label="{% trans "Filter by category" %}">
                     <option selected value="">{% trans "All Categories" %}</option>
                     {% for category in categories %}
-                        <option value="{{ category.id }}">{{ category.name }}</option>
+                        <option value="{{ category.id }}">
+                            <a href="/{{ category.slug }}"
+                               class="text-decoration-none text-black">{{ category.name }}</a>
+                        </option>
                     {% empty %}
                         <option value="" disabled>
                             {% trans "No Categories Found" %}
                         </option>
                     {% endfor %}
                 </select>
+{% endcomment %}
             </div>
         </div>
 
         <div class="col-lg-9">
-            <h2 class="mb-4 text-center">{% trans "Products" %}</h2>
+            <h2 class="mb-4 text-center">{{ page_description }}</h2>
             <div class="row">
                 {% for product in products %}
                     <div class="col-lg-4 mb-4">
                         <div class="card overflow-hidden" style="max-height: 400px;">
                             <a href="{{ product.get_absolute_url }}">
-                                {% thumbnail product.image "x200"  as im %}
-                                    <img src="{{ im.url }}" class="card-img-top" alt="{{ product.title }}" style="height: 200px; object-fit: cover; object-position: center;">
+                                {% thumbnail product.image "x200" as im %}
+                                    <img src="{{ im.url }}" class="card-img-top" alt="{{ product.title }}"
+                                         style="height: 200px; object-fit: cover; object-position: center;">
                                     {#                                <img src="{{ product.get_image_url }}" class="card-img-top" alt="{{ product.title }}">#}
                                 {% endthumbnail %}
                             </a>
